@@ -17,6 +17,7 @@ set smartindent
 set scrolloff=8
 set encoding=utf-8
 set signcolumn=yes
+" set shell=powershell.exe
 "set clipboard+=unnamedplus
 
 
@@ -34,6 +35,10 @@ nnoremap ö ;
 nnoremap Ö :
 nnoremap ä '
 nnoremap Ä "
+nnoremap å [
+nnoremap Å {
+nnoremap ´ ]
+nnoremap ` }
 
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>se :e $MYVIMRC<CR>
@@ -44,7 +49,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+
 Plug 'neovim/nvim-lspconfig'
+" Plug 'kabouzeid/nvim-lspinstall'
 Plug 'nvim-lua/completion-nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -57,6 +64,9 @@ Plug 'ojroques/nvim-lspfuzzy', {'branch': 'main'}
 
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
+
+" Plug 'nikvdp/neomux'
+Plug 'mhinz/vim-startify'
 
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
@@ -76,7 +86,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-" lua require'lspconfig'.pyright.setup{ on_attach=require'completion'.on_attach }
+" lua require'lspinstall'.setup()
+lua require'lspconfig'.pyright.setup{ on_attach=require'completion'.on_attach }
 
 "" Tree sitter
 
